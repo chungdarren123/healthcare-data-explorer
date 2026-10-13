@@ -5,9 +5,10 @@ insurance dataset with **pandas** and **Matplotlib**. It is the starter
 repository for Coding for Healthcare Session 2: a real development environment
 and AI-assisted data exploration.
 
-The supplied program already works. Run it first, then use the `TODO` comments
-in `main.py` to make small changes and immediately see their effect in the
-terminal and the generated chart.
+The supplied program provides a working baseline once you download the dataset
+from Kaggle. Run it first, then use the `TODO` comments in `main.py` to make
+small changes and immediately see their effect in the terminal and the
+generated chart.
 
 > **Educational use only.** This project is not clinical software and its
 > output must not be used for healthcare or insurance decisions. Never add real
@@ -38,7 +39,8 @@ causes a change in insurance charges.
 ```text
 healthcare-data-explorer/
 ├── data/
-│   └── insurance.csv       # Supplied public dataset
+│   ├── .gitkeep            # Keeps the initially empty folder in Git
+│   └── insurance.csv       # Download locally from Kaggle; ignored by Git
 ├── outputs/
 │   └── .gitkeep            # Keeps the initially empty folder in Git
 ├── .gitignore              # Files Git should not track
@@ -57,6 +59,7 @@ healthcare-data-explorer/
 - Visual Studio Code
 - The Microsoft Python extension for VS Code
 - A GitHub account for GitHub Copilot Chat
+- A free Kaggle account to download the dataset
 
 VS Code and its Python extension do not include the Python interpreter. Python
 must also be installed on your laptop.
@@ -79,7 +82,27 @@ If cloning is unavailable during the workshop, download the repository ZIP,
 extract it, and open the extracted folder. Git history is not included in that
 fallback workflow.
 
-### 2. Create the Python environment
+### 2. Download the dataset from Kaggle
+
+Download the dataset from the publisher as part of the project setup:
+
+1. Open the [Medical Cost Personal Datasets page on
+   Kaggle](https://www.kaggle.com/datasets/mirichoi0218/insurance).
+2. Sign in to Kaggle if prompted, then select **Download**.
+3. Open the downloaded ZIP file and extract `insurance.csv`.
+4. In VS Code, open this repository's `data` folder.
+5. Move or copy `insurance.csv` into `data`.
+
+The final path must be:
+
+```text
+healthcare-data-explorer/data/insurance.csv
+```
+
+CSV and ZIP files inside `data/` are excluded from version control. Keep the
+original filename so that `main.py` can locate the dataset.
+
+### 3. Create the Python environment
 
 In VS Code:
 
@@ -94,7 +117,7 @@ VS Code should create a `.venv` folder and select it for this project. The
 `.venv` folder is intentionally excluded from Git because every contributor
 can recreate it from `requirements.txt`.
 
-### 3. Run the baseline
+### 4. Run the baseline
 
 Open `main.py`, then select **Run Python File in Terminal** from the top-right
 of the editor.
@@ -202,7 +225,9 @@ Confirm that `.venv` is selected in VS Code and that the dependencies from
 ### `FileNotFoundError`
 
 Confirm that `data/insurance.csv` exists and that you opened the repository
-folder rather than only opening `main.py`.
+folder rather than only opening `main.py`. If it is missing, complete the
+Kaggle download steps above and check that the file was not left inside the ZIP
+archive or placed in an extra nested folder.
 
 ### The chart does not appear
 
@@ -222,6 +247,7 @@ Use an email address you are comfortable associating with your local commits.
 
 ## Data and license
 
-Read [`DATASET.md`](DATASET.md) for provenance, fields, and limitations. The MIT
-license applies to this repository's original code and documentation. It does
-not relicense the included third-party dataset.
+Read [`DATASET.md`](DATASET.md) for download instructions, provenance, fields,
+and limitations. The MIT license applies only to this repository's original
+code and documentation. The dataset remains subject to the terms stated by its
+publisher.

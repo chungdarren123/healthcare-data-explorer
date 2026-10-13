@@ -16,7 +16,12 @@ OUTPUT_PATH = PROJECT_ROOT / "outputs" / "charges_by_smoking.png"
 
 
 def load_data() -> pd.DataFrame:
-    """Load the supplied CSV file into a pandas DataFrame."""
+    """Load the locally downloaded CSV file into a pandas DataFrame."""
+    if not DATA_PATH.exists():
+        raise FileNotFoundError(
+            "Dataset not found. Download insurance.csv from the Kaggle link "
+            "in README.md, then place it at data/insurance.csv."
+        )
     return pd.read_csv(DATA_PATH)
 
 

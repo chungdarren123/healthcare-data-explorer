@@ -2,23 +2,29 @@
 
 ## Source
 
-This repository includes `data/insurance.csv`, commonly published as the
-**Medical Cost Personal Datasets** dataset:
+This project uses `insurance.csv`, commonly published as the **Medical Cost
+Personal Datasets** dataset:
 
 - Kaggle page: <https://www.kaggle.com/datasets/mirichoi0218/insurance>
 - Kaggle publisher: M. Choi (`mirichoi0218`)
 - Commonly attributed origin: Brett Lantz, *Machine Learning with R*, Packt
   Publishing, 2013
 
-The data file is redistributed for education with attribution. The MIT license
-in this repository applies to the original code and documentation, not to
-third-party data. The dataset remains subject to the terms stated by its
-original publisher.
+Download the data file directly from the Kaggle page, extract `insurance.csv`,
+and place it at:
+
+```text
+data/insurance.csv
+```
+
+The MIT license in this repository applies only to the original code and
+documentation. The dataset remains subject to the terms stated by its
+publisher.
 
 ## Contents
 
-The file contains 1,338 rows and seven columns. Each row represents one
-insurance record.
+The downloaded file contains 1,338 rows and seven columns. Each row represents
+one insurance record.
 
 | Column | Description |
 |---|---|
