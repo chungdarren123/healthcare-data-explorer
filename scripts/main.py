@@ -1,6 +1,6 @@
 """Explore the Medical Cost Personal dataset and create a simple chart.
 
-Run this file from VS Code or with a Python interpreter. The starting version
+Run it from the repository folder: python3 scripts/main.py The starting version
 works completely; the TODO comments identify safe places to experiment.
 """
 
@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
-PROJECT_ROOT = Path(__file__).resolve().parent
+PROJECT_ROOT = Path(__file__).resolve().parent.parent  # the repository folder, one level above scripts/
 DATA_PATH = PROJECT_ROOT / "data" / "insurance.csv"
 OUTPUT_PATH = PROJECT_ROOT / "outputs" / "charges_by_smoking.png"
 
@@ -19,8 +19,9 @@ def load_data() -> pd.DataFrame:
     """Load the locally downloaded CSV file into a pandas DataFrame."""
     if not DATA_PATH.exists():
         raise FileNotFoundError(
-            "Dataset not found. Download insurance.csv from the Kaggle link "
-            "in README.md, then place it at data/insurance.csv."
+            "Dataset not found. Make a folder named data next to scripts/, "
+            "download insurance.csv from the Kaggle link in README.md, "
+            "and put it there: data/insurance.csv"
         )
     return pd.read_csv(DATA_PATH)
 

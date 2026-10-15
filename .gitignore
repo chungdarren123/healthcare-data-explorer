@@ -15,9 +15,8 @@ Thumbs.db
 .env.*
 !.env.example
 
-# Locally downloaded datasets
-data/*
-!data/.gitkeep
+# Locally downloaded datasets: the data folder is created by you, never tracked
+data/
 
 # Test and tool caches
 .pytest_cache/

@@ -6,7 +6,7 @@ repository for Coding for Healthcare Session 2: a real development environment
 and AI-assisted data exploration.
 
 The supplied program provides a working baseline once you download the dataset
-from Kaggle. Run it first, then use the `TODO` comments in `main.py` to make
+from Kaggle. Run it first, then use the `TODO` comments in `scripts/main.py` to make
 small changes and immediately see their effect in the terminal and the
 generated chart.
 
@@ -38,9 +38,8 @@ causes a change in insurance charges.
 
 ```text
 healthcare-data-explorer/
-├── data/
-│   ├── .gitkeep            # Keeps the initially empty folder in Git
-│   └── insurance.csv       # Download locally from Kaggle; ignored by Git
+├── scripts/
+│   └── main.py             # Working analysis with student TODOs
 ├── outputs/
 │   └── .gitkeep            # Keeps the initially empty folder in Git
 ├── .gitignore              # Files Git should not track
@@ -48,8 +47,10 @@ healthcare-data-explorer/
 ├── DATASET.md              # Data provenance and limitations
 ├── LICENSE                 # License for original code and documentation
 ├── README.md               # Project purpose and instructions
-├── main.py                 # Working analysis with student TODOs
 └── requirements.txt        # Required Python packages
+
+data/                       # You create this folder; Git never tracks it
+└── insurance.csv           # Downloaded from Kaggle
 ```
 
 ## Requirements
@@ -90,8 +91,8 @@ Download the dataset from the publisher as part of the project setup:
    Kaggle](https://www.kaggle.com/datasets/mirichoi0218/insurance).
 2. Sign in to Kaggle if prompted, then select **Download**.
 3. Open the downloaded ZIP file and extract `insurance.csv`.
-4. In VS Code, open this repository's `data` folder.
-5. Move or copy `insurance.csv` into `data`.
+4. In the VS Code Explorer, right-click the repository folder → **New Folder** → name it `data`.
+5. Drag `insurance.csv` from your Downloads folder onto `data`.
 
 The final path must be:
 
@@ -99,8 +100,9 @@ The final path must be:
 healthcare-data-explorer/data/insurance.csv
 ```
 
-CSV and ZIP files inside `data/` are excluded from version control. Keep the
-original filename so that `main.py` can locate the dataset.
+The whole `data/` folder is excluded from version control, so the dataset
+never reaches GitHub. Keep the original filename so that `scripts/main.py` can
+locate it.
 
 ### 3. Create the Python environment
 
@@ -117,10 +119,24 @@ VS Code should create a `.venv` folder and select it for this project. The
 `.venv` folder is intentionally excluded from Git because every contributor
 can recreate it from `requirements.txt`.
 
+The same thing from the terminal, in the repository folder:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate        # Windows Git Bash: source .venv/Scripts/activate
+pip install -r requirements.txt
+```
+
 ### 4. Run the baseline
 
-Open `main.py`, then select **Run Python File in Terminal** from the top-right
-of the editor.
+In the terminal, from the repository folder:
+
+```bash
+python3 scripts/main.py
+```
+
+Or open `scripts/main.py` and select **Run Python File in Terminal** from the
+top-right of the editor.
 
 The program should:
 
@@ -201,7 +217,7 @@ git diff
 Stage the files intentionally and commit them:
 
 ```bash
-git add main.py
+git add scripts/main.py
 git add outputs/charges_by_smoking.png
 git commit -m "Add insurance charge analysis and visualization"
 git status
@@ -225,7 +241,7 @@ Confirm that `.venv` is selected in VS Code and that the dependencies from
 ### `FileNotFoundError`
 
 Confirm that `data/insurance.csv` exists and that you opened the repository
-folder rather than only opening `main.py`. If it is missing, complete the
+folder rather than only opening `scripts/main.py`. If it is missing, complete the
 Kaggle download steps above and check that the file was not left inside the ZIP
 archive or placed in an extra nested folder.
 

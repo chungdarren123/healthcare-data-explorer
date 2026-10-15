@@ -9,7 +9,7 @@ responsible interpretation of the dataset are welcome.
 2. Create a Python virtual environment.
 3. Install `requirements.txt`.
 4. Make a focused change.
-5. Run `main.py` and inspect both the terminal output and generated chart.
+5. Run `scripts/main.py` and inspect both the terminal output and generated chart.
 6. Review `git diff` before committing.
 
 Please keep beginner-facing examples small and explain unfamiliar concepts in
